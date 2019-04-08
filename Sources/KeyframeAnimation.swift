@@ -15,7 +15,7 @@ public struct KeyframeAnimation {
     /// The `Keyframe` objects representing the keyframes to be animated.
     public let keyframes: [Keyframe]
     /// The `UIViewKeyframeAnimationOptions` to apply to the animation.
-    public let options: UIViewKeyframeAnimationOptions
+    public let options: UIView.KeyframeAnimationOptions
     
     /**
      Initializes and returns a `KeyframeAnimation` instance representing a keyframe animation.
@@ -25,7 +25,7 @@ public struct KeyframeAnimation {
      
      - returns An initialized `KeyframeAnimation` instance.
      */
-    public init(keyframes: [Keyframe], options: UIViewKeyframeAnimationOptions = []) {
+    public init(keyframes: [Keyframe], options: UIView.KeyframeAnimationOptions = []) {
         self.keyframes = keyframes
         self.options = options
     }
@@ -50,7 +50,7 @@ extension KeyframeAnimation: Animation {
     
     /// The animation block to pass to a `UIView` keyframe animation.
     public var animationBlock: AnimationBlock {
-        return {
+        return { 
             for keyframe in self.keyframes {
                 
                 let relativeStartTime: Double = {
